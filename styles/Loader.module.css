@@ -7,6 +7,16 @@
   align-items: center;
   left: 0;
   top: 0;
+  background: linear-gradient(
+    -45deg,
+    var(--charcoal),
+    var(--dark-green),
+    var(--dark-purple),
+    var(--midnight-blue),
+    var(--onyx)
+  );
+  background-size: 400% 400%;
+  animation: gradient 5s ease infinite;
 }
 .ldsHourglass {
   display: inline-block;
@@ -37,5 +47,16 @@
   }
   100% {
     transform: rotate(1800deg);
+  }
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }

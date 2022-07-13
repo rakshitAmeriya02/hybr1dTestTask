@@ -6,7 +6,7 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   height: 100%;
   width: 100%;
-  background-color: var(--primary);
+  background-color: var(--dark-purple);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,4 +27,13 @@ a {
 :root {
   --primary: #292929;
   --white: #ffffff;
+  --black: #000000;
+  --charcoal: #36454f;
+  --dark-green: #023020;
+  --dark-purple: #301934;
+  --jet-black: #343434;
+  --licorice: #1b1212;
+  --mate-black: #28282b;
+  --midnight-blue: #191970;
+  --onyx: #353935;
 }

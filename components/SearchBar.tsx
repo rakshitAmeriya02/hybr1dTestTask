@@ -47,11 +47,23 @@ const SearchBar = () => {
   const customStyles: StylesConfig<HackerOption, false> = {
     container: (base) => ({
       ...base,
-      width: 300,
+      width: 340,
     }),
     input: (base) => ({
       ...base,
-      height: 40,
+      height: 45,
+      color: "#000000",
+      padding: '6px 10px',
+    }),
+    placeholder: (base) => ({
+      ...base,
+      color: "#000000",
+      padding: '6px 10px',
+    }),
+    control: (base) => ({
+      ...base,
+      boxShadow: "inset 0px 1px 1px 1px transparent",
+      borderRadius: "10px",
     }),
   };
 
