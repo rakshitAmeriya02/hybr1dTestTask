@@ -28,7 +28,7 @@ const SearchBar = () => {
           const data: SearchResult = await fetchData(url);
           const options = data.hits.map((item) => ({
             value: item.objectID,
-            label: item.title,
+            label: item.title || item.story_title || "",
           }));
           setOptions(options);
           resolve(options);

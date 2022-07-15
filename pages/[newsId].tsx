@@ -64,7 +64,7 @@ const News = () => {
       </div>
       {story ? (
         <div className={styles.container}>
-          <h2>{story.title}</h2>
+          <h2 dangerouslySetInnerHTML={{ __html: story.title || story.text }} />
           <h3>Points {story.points || 0}</h3>
           {comments.length ? (
             <ul>
