@@ -2,9 +2,11 @@ import { Story } from "../interfaces";
 import { fetchData } from "../utils/api";
 import { API_ENDPOINT } from "../utils/constant";
 import styles from "../styles/News.module.css";
-import { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/router";
 import Loader from "components/Loader";
+import SearchBar from "components/SearchBar";
+import { BackIcon } from "icons";
 
 const exractComments = (story: Story, comments: string[] = []) => {
   if (story.type === "comment" && story.text && story.text.trim()) {
@@ -46,23 +48,43 @@ const News = () => {
     return <Loader />;
   }
 
-  return story ? (
-    <div className={styles.container}>
-      <h2>{story.title}</h2>
-      <h3>Points {story.points || 0}</h3>
-      <ul>
-        {comments.map((comment, index) => (
-          <li
-            key={`comment-${index + 1}`}
-            dangerouslySetInnerHTML={{ __html: comment }}
-          />
-        ))}
-      </ul>
-    </div>
-  ) : (
-    <div className={styles.noDataContainer}>
-      <h2>Data not found</h2>
-    </div>
+  const handleGoBack = () => {
+    router.back();
+  };
+
+  return (
+    <React.Fragment>
+      <div className={styles.headerBar}>
+        <div onClick={handleGoBack}>
+          <BackIcon />
+        </div>
+        <div className={styles.searchBarWrapper}>
+          <SearchBar />
+        </div>
+      </div>
+      {story ? (
+        <div className={styles.container}>
+          <h2>{story.title}</h2>
+          <h3>Points {story.points || 0}</h3>
+          {comments.length ? (
+            <ul>
+              {comments.map((comment, index) => (
+                <li
+                  key={`comment-${index + 1}`}
+                  dangerouslySetInnerHTML={{ __html: comment }}
+                />
+              ))}
+            </ul>
+          ) : (
+            <h5>No comments available</h5>
+          )}
+        </div>
+      ) : (
+        <div className={styles.noDataContainer}>
+          <h2>Data not found</h2>
+        </div>
+      )}
+    </React.Fragment>
   );
 };
 

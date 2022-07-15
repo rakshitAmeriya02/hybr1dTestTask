@@ -15,6 +15,12 @@
   background-size: 400% 400%;
   animation: gradient 5s ease infinite;
 }
+.container > div {
+  width: 100%;
+}
+.container > div > div {
+  margin: auto;
+}
 @keyframes gradient {
   0% {
     background-position: 0% 50%;
